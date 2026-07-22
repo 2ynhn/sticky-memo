@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>펜션 예약 달력 데모</title>
+  <link rel="stylesheet" href="./vendor/air-datepicker/air-datepicker.css" />
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <h1>펜션 예약 달력</h1>
+
+  <div class="room-list">
+    <button class="room-button" data-room-id="room-a">A호실 (오션뷰)</button>
+    <button class="room-button" data-room-id="room-b">B호실 (마운틴뷰)</button>
+    <button class="room-button" data-room-id="room-c">C호실 (풀빌라)</button>
+  </div>
+
+  <p id="status"></p>
+
+  <div class="datepicker"></div>
+
+  <script src="./vendor/air-datepicker/air-datepicker.js"></script>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
