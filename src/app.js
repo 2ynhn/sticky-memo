@@ -70,20 +70,31 @@ class reservCalendar {
       locale: KO_LOCALE,
       startDate: firstAvailableDate || new Date(),
 
+      navTitles: {
+        days: (dp) => {
+          const { year, month } = dp.parsedViewDate;
+          return `${year}.${String(month + 1).padStart(2, '0')}`;
+        },
+      },
+
       onRenderCell: ({ date, cellType }) => {
         if (cellType !== 'day') return {};
 
         const iso = toIsoDate(date);
         let badgeText = '';
+        let flagClass = '';
+
         if (reservedSet.has(iso)) {
           badgeText = '예약';
+          flagClass = 'flag-reserved';
         } else if (closedSet.has(iso)) {
           badgeText = '마감';
+          flagClass = 'flag-closed';
         }
 
         return {
           disabled: !availableSet.has(iso),
-          classes: badgeText ? '-pension-badge-' : '',
+          classes: badgeText ? `-pension-badge- ${flagClass}` : '',
           html: badgeText
             ? `<span class="pension-cell-date">${date.getDate()}</span><span class="pension-cell-badge">${badgeText}</span>`
             : undefined,
