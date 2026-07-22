@@ -1,0 +1,60 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.room-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.room-button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.room-button.is-active {
+  background: #2f6feb;
+  color: #fff;
+  border-color: #2f6feb;
+}
+
+#status {
+  min-height: 20px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.datepicker {
+  display: inline-block;
+}
+
+/* 예약/마감 뱃지가 있는 셀 */
+.air-datepicker-cell.-day-.-pension-badge- {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  gap: 2px;
+}
+
+.pension-cell-date {
+  font-size: 13px;
+}
+
+.pension-cell-badge {
+  font-size: 10px;
+  color: #e5484d;
+}
+
+.air-datepicker-cell.-day-.-disabled- .pension-cell-badge {
+  color: #999;
+}
