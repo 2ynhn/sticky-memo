@@ -70,6 +70,13 @@ class reservCalendar {
       locale: KO_LOCALE,
       startDate: firstAvailableDate || new Date(),
 
+      navTitles: {
+        days: (dp) => {
+          const { year, month } = dp.parsedViewDate;
+          return `${KO_LOCALE.months[month]}, ${year}년`;
+        },
+      },
+
       onRenderCell: ({ date, cellType }) => {
         if (cellType !== 'day') return {};
 
