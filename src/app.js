@@ -36,7 +36,10 @@ const calendarEl = document.querySelector('.datepicker');
 const statusEl = document.querySelector('#status');
 const calendar = new PensionCalendar(calendarEl);
 
-function initCalendarForRoom(room) {
+function initCalendarForRoom(roomId) {
+  const room = ROOMS.find((r) => r.id === roomId);
+  if (!room) return;
+
   document
     .querySelectorAll('.room-button')
     .forEach((btn) => btn.classList.toggle('is-active', btn.dataset.roomId === room.id));
@@ -56,9 +59,5 @@ function initCalendarForRoom(room) {
   });
 }
 
-document.querySelectorAll('.room-button').forEach((button) => {
-  button.addEventListener('click', () => {
-    const room = ROOMS.find((r) => r.id === button.dataset.roomId);
-    if (room) initCalendarForRoom(room);
-  });
-});
+// index.html 각 버튼의 onclick="initCalendarForRoom('room-x')" 에서 직접 호출
+window.initCalendarForRoom = initCalendarForRoom;
