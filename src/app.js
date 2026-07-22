@@ -82,15 +82,19 @@ class reservCalendar {
 
         const iso = toIsoDate(date);
         let badgeText = '';
+        let flagClass = '';
+
         if (reservedSet.has(iso)) {
           badgeText = '예약';
+          flagClass = 'flag-reserved';
         } else if (closedSet.has(iso)) {
           badgeText = '마감';
+          flagClass = 'flag-closed';
         }
 
         return {
           disabled: !availableSet.has(iso),
-          classes: badgeText ? '-pension-badge-' : '',
+          classes: badgeText ? `-pension-badge- ${flagClass}` : '',
           html: badgeText
             ? `<span class="pension-cell-date">${date.getDate()}</span><span class="pension-cell-badge">${badgeText}</span>`
             : undefined,
