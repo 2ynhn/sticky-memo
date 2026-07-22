@@ -73,7 +73,7 @@ class reservCalendar {
       navTitles: {
         days: (dp) => {
           const { year, month } = dp.parsedViewDate;
-          return `${KO_LOCALE.months[month]}, ${year}년`;
+          return `${year}.${String(month + 1).padStart(2, '0')}`;
         },
       },
 
